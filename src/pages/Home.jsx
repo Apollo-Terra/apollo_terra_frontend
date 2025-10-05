@@ -250,31 +250,33 @@ const Home = () => {
       </header>
 
       <div className="controls-container">
-        <div className="control-group">
-          <label htmlFor="date-picker">Data:</label>
-          <input
-            type="date"
-            id="date-picker"
-            value={selectedDate}
-            onChange={(e) => setSelectedDate(e.target.value)}
-          />
-        </div>
+        <div className="controls-row">
+          <div className="control-group">
+            <label htmlFor="date-picker">Data:</label>
+            <input
+              type="date"
+              id="date-picker"
+              value={selectedDate}
+              onChange={(e) => setSelectedDate(e.target.value)}
+            />
+          </div>
 
-        <div className="control-group">
-          <label htmlFor="fruit-filter">Filtrar Frutas:</label>
-          <select 
-            id="fruit-filter"
-            value={selectedFruit}
-            onChange={(e) => setSelectedFruit(e.target.value)}
-          >
-            <option value="todas">Todas</option>
-            <option value="cajueiro">Cajueiro</option>
-            <option value="mangueira">Mangueira</option>
-            <option value="goiabeira">Goiabeira</option>
-            <option value="coqueiro">Coqueiro</option>
-            <option value="aceroleira">Aceroleira</option>
-            <option value="maracujazeiro">Maracujazeiro</option>
-          </select>
+          <div className="control-group">
+            <label htmlFor="fruit-filter">Filtrar Frutas:</label>
+            <select 
+              id="fruit-filter"
+              value={selectedFruit}
+              onChange={(e) => setSelectedFruit(e.target.value)}
+            >
+              <option value="todas">Todas</option>
+              <option value="cajueiro">Cajueiro</option>
+              <option value="mangueira">Mangueira</option>
+              <option value="goiabeira">Goiabeira</option>
+              <option value="coqueiro">Coqueiro</option>
+              <option value="aceroleira">Aceroleira</option>
+              <option value="maracujazeiro">Maracujazeiro</option>
+            </select>
+          </div>
         </div>
 
         <div className="control-group">
