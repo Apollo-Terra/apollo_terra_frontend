@@ -97,6 +97,123 @@
   animation: pulse 2s infinite;
 }
 
+.subtitle {
+  font-size: 0.9em;
+  color: #7dd3c0;
+  font-style: italic;
+  margin-top: 5px;
+}
+
+.controls-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+}
+
+.control-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.control-group label {
+  font-weight: 600;
+  color: #4facfe;
+  white-space: nowrap;
+}
+
+.control-group input[type="date"],
+.control-group select {
+  padding: 8px 12px;
+  border: 2px solid #4facfe;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  font-size: 0.95em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.control-group input[type="date"]:hover,
+.control-group select:hover {
+  background: rgba(79, 172, 254, 0.1);
+  border-color: #00f2fe;
+}
+
+.control-group input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+/* Estilos dos Popups */
+.region-popup h4 {
+  color: #4facfe;
+  margin-bottom: 10px;
+  font-size: 1.1em;
+}
+
+.region-popup p {
+  margin: 5px 0;
+  color: #d1e8e2;
+}
+
+.analysis-popup {
+  min-width: 300px;
+}
+
+.analysis-popup h4 {
+  color: #4facfe;
+  margin-bottom: 15px;
+  font-size: 1.2em;
+  border-bottom: 2px solid #4facfe;
+  padding-bottom: 8px;
+}
+
+.analysis-data {
+  background: rgba(79, 172, 254, 0.1);
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.analysis-data p {
+  margin: 8px 0;
+  color: #d1e8e2;
+  font-size: 0.95em;
+}
+
+.suggestions {
+  margin-top: 15px;
+}
+
+.suggestions h5 {
+  color: #00f2fe;
+  margin-bottom: 12px;
+  font-size: 1.05em;
+}
+
+.suggestion-item {
+  background: rgba(46, 204, 113, 0.1);
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  border-left: 3px solid #2ecc71;
+}
+
+.suggestion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
 @keyframes pulse {
   0% { opacity: 0.6; }
   50% { opacity: 1; }
@@ -196,5 +313,245 @@
   
   .controls-container {
     padding: 0.75rem;
+  }
+}
+
+/* Modal de Análise */
+.analysis-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  backdrop-filter: blur(5px);
+}
+
+.analysis-modal {
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 800px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(239, 68, 68, 0.2);
+  border: 1px solid rgba(239, 68, 68, 0.5);
+  color: #ef4444;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.modal-close:hover {
+  background: rgba(239, 68, 68, 0.3);
+  transform: scale(1.1);
+}
+
+.analysis-content h3 {
+  color: #60a5fa;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.analysis-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.analysis-item {
+  background: rgba(59, 130, 246, 0.1);
+  padding: 1rem;
+  border-radius: 8px;
+  border-left: 4px solid #3b82f6;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.analysis-item .label {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+.analysis-item .value {
+  font-size: 1.1rem;
+  color: #e2e8f0;
+  font-weight: 700;
+}
+
+.suggestions-section h4 {
+  color: #34d399;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.suggestions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.suggestion-card {
+  background: rgba(52, 211, 153, 0.1);
+  border: 1px solid rgba(52, 211, 153, 0.3);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.suggestion-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(52, 211, 153, 0.2);
+}
+
+.suggestion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.suggestion-header h5 {
+  color: #e2e8f0;
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.viability {
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.viability-alta {
+  background: rgba(34, 197, 94, 0.2);
+  color: #22c55e;
+  border: 1px solid rgba(34, 197, 94, 0.5);
+}
+
+.viability-média {
+  background: rgba(251, 191, 36, 0.2);
+  color: #fbbf24;
+  border: 1px solid rgba(251, 191, 36, 0.5);
+}
+
+.viability-baixa {
+  background: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.5);
+}
+
+.benefits {
+  color: #cbd5e1;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.fruit-specs {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.9rem;
+  color: #94a3b8;
+}
+
+.no-suggestions {
+  text-align: center;
+  padding: 2rem;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 12px;
+}
+
+.no-suggestions h4 {
+  color: #ef4444;
+  margin-bottom: 1rem;
+}
+
+.no-suggestions p {
+  color: #cbd5e1;
+}
+
+.analyzing {
+  text-align: center;
+  padding: 3rem;
+}
+
+.analyzing h3 {
+  color: #60a5fa;
+  margin-bottom: 2rem;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(96, 165, 250, 0.3);
+  border-top: 4px solid #60a5fa;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.simple-popup {
+  text-align: center;
+  color: #000;
+}
+
+.simple-popup p {
+  margin: 0.25rem 0;
+  color: #333;
+  font-weight: 500;
+}
+
+/* Responsividade do Modal */
+@media (max-width: 768px) {
+  .analysis-modal {
+    padding: 1.5rem;
+    width: 95%;
+    max-height: 95vh;
+  }
+  
+  .analysis-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .suggestions-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .analysis-content h3 {
+    font-size: 1.3rem;
   }
 }
