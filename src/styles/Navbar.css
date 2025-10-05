@@ -198,26 +198,37 @@ body:has(.navbar.closed) .main-content {
 /* Responsivo para tablets e mobile */
 @media (max-width: 768px) {
   .navbar {
-    width: 100%;
-    height: auto;
-    flex-direction: row;
-    padding: 1rem;
-    border-right: none;
-    border-bottom: 1px solid rgba(100, 200, 255, 0.1);
-    position: relative;
+    width: 250px;
+    height: 100vh;
+    flex-direction: column;
+    padding: 2rem 0;
+    border-right: 1px solid rgba(100, 200, 255, 0.1);
+    border-bottom: none;
+    position: fixed;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  .navbar.open {
+    transform: translateX(0);
+  }
+
+  .navbar.closed {
+    transform: translateX(-100%);
+    width: 250px;
   }
 
   .navbar-logo {
-    flex-direction: row;
-    padding: 0;
-    margin-bottom: 0;
-    margin-right: auto;
-    border-bottom: none;
+    flex-direction: column;
+    padding: 0 1.5rem 2rem;
+    margin-bottom: 2rem;
+    margin-right: 0;
+    border-bottom: 2px solid rgba(100, 200, 255, 0.2);
   }
 
   .navbar-logo img {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
   }
 
   .navbar-logo h1 {
@@ -225,36 +236,39 @@ body:has(.navbar.closed) .main-content {
   }
 
   .navbar-links {
-    flex-direction: row;
-    padding: 0;
+    flex-direction: column;
+    padding: 0 1rem;
   }
 
   .navbar-links a {
-    padding: 0.5rem 1rem;
+    padding: 1rem 1.5rem;
   }
 
   .navbar-links a::before {
-    left: 50%;
-    top: auto;
-    bottom: 0;
-    transform: translateX(-50%);
-    width: 0;
-    height: 4px;
+    left: 0;
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 0;
   }
 
   .navbar-links a:hover::before,
   .navbar-links a.active::before {
-    width: 70%;
-    height: 4px;
+    width: 4px;
+    height: 70%;
   }
 
   .navbar-links a:hover {
-    transform: translateX(0);
-    transform: translateY(-2px);
+    transform: translateX(5px);
+  }
+
+  .navbar-open-btn {
+    display: block;
   }
 
   .main-content {
     margin-left: 0;
-    margin-top: 80px;
+    margin-top: 0;
   }
 }
