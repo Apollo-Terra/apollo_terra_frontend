@@ -1,9 +1,18 @@
 import { useState, useEffect, useCallback } from 'react';
 import { MapContainer, TileLayer, useMapEvents, Marker, Popup, Circle } from 'react-leaflet';
+import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import '../styles/Home.css';
 import api from '../services/apiService';
 import NasaTileLayer from '../components/NasaTileLayer';
+
+// Fix para ícones do Leaflet no build
+delete L.Icon.Default.prototype._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
+  iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
+  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+});
 
 // Componente para capturar cliques no mapa
 const MapClickHandler = ({ onMapClick }) => {
@@ -241,31 +250,33 @@ const Home = () => {
       </header>
 
       <div className="controls-container">
-        <div className="control-group">
-          <label htmlFor="date-picker">Data:</label>
-          <input
-            type="date"
-            id="date-picker"
-            value={selectedDate}
-            onChange={(e) => setSelectedDate(e.target.value)}
-          />
-        </div>
+        <div className="controls-row">
+          <div className="control-group">
+            <label htmlFor="date-picker">Data:</label>
+            <input
+              type="date"
+              id="date-picker"
+              value={selectedDate}
+              onChange={(e) => setSelectedDate(e.target.value)}
+            />
+          </div>
 
-        <div className="control-group">
-          <label htmlFor="fruit-filter">Filtrar Frutas:</label>
-          <select 
-            id="fruit-filter"
-            value={selectedFruit}
-            onChange={(e) => setSelectedFruit(e.target.value)}
-          >
-            <option value="todas">Todas</option>
-            <option value="cajueiro">Cajueiro</option>
-            <option value="mangueira">Mangueira</option>
-            <option value="goiabeira">Goiabeira</option>
-            <option value="coqueiro">Coqueiro</option>
-            <option value="aceroleira">Aceroleira</option>
-            <option value="maracujazeiro">Maracujazeiro</option>
-          </select>
+          <div className="control-group">
+            <label htmlFor="fruit-filter">Filtrar Frutas:</label>
+            <select 
+              id="fruit-filter"
+              value={selectedFruit}
+              onChange={(e) => setSelectedFruit(e.target.value)}
+            >
+              <option value="todas">Todas</option>
+              <option value="cajueiro">Cajueiro</option>
+              <option value="mangueira">Mangueira</option>
+              <option value="goiabeira">Goiabeira</option>
+              <option value="coqueiro">Coqueiro</option>
+              <option value="aceroleira">Aceroleira</option>
+              <option value="maracujazeiro">Maracujazeiro</option>
+            </select>
+          </div>
         </div>
 
         <div className="control-group">
