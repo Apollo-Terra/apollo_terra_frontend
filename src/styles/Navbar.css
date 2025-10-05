@@ -195,6 +195,11 @@ body:has(.navbar.closed) .main-content {
   margin-left: 70px;
 } 
 
+/* Barra lateral com ícones para mobile */
+.mobile-sidebar {
+  display: none;
+}
+
 /* Responsivo para tablets e mobile */
 @media (max-width: 768px) {
   .navbar {
@@ -264,11 +269,46 @@ body:has(.navbar.closed) .main-content {
   }
 
   .navbar-open-btn {
-    display: block;
+    display: none;
+  }
+
+  .mobile-sidebar {
+    display: flex;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 60px;
+    height: 100vh;
+    background: linear-gradient(180deg, #0a1628 0%, #1a2c4e 50%, #0f1d36 100%);
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+    z-index: 999;
+    border-right: 1px solid rgba(100, 200, 255, 0.1);
+  }
+
+  .mobile-sidebar-btn {
+    background: transparent;
+    border: none;
+    color: #b8d4e8;
+    padding: 1rem 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .mobile-sidebar-btn:hover,
+  .mobile-sidebar-btn.active {
+    background: rgba(100, 200, 255, 0.1);
+    color: #64c8ff;
   }
 
   .main-content {
-    margin-left: 0;
+    margin-left: 60px;
     margin-top: 0;
   }
 }
