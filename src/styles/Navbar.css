@@ -269,7 +269,7 @@ body:has(.navbar.closed) .main-content {
   }
 
   .navbar-open-btn {
-    display: none;
+    display: block;
   }
 
   .mobile-sidebar {

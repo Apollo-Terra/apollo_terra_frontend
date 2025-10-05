@@ -80,6 +80,15 @@ const Navbar = () => {
           ))}
         </div>
       </nav>
+      
+      {!isOpen && (
+        <button 
+          className="navbar-open-btn"
+          onClick={() => setIsOpen(true)}
+        >
+          <Menu size={24} />
+        </button>
+      )}
     </>
   );
 };
