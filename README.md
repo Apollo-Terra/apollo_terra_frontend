@@ -1,43 +1,41 @@
 # 🌍 Apollo Terra Frontend
 
-Bem-vindo ao **Apollo Terra** — uma aplicação web interativa desenvolvida para explorar dados ambientais e territoriais do Ceará de forma visual, acessível e gamificada.  
-Este repositório contém o **frontend** do projeto, construído com **React + Vite**, focando em performance e experiência do usuário.
-
-![Capa do Projeto](./public/preview.png) <!-- Substitua pelo caminho de uma imagem real ou remova esta linha -->
+Welcome to **Apollo Terra** — an interactive web application designed to explore environmental and territorial data from Ceará in a **visual**, **accessible**, and **gamified** way.  
+This repository contains the **frontend** of the project, built with **React + Vite**, focusing on performance and user experience.
 
 ---
 
-## ✨ Funcionalidades Principais
+## ✨ Main Features
 
-- 🗺️ **Mapa Interativo** — Navegue pelo Ceará e descubra vegetações e regiões semiáridas  
-- 🌿 **Visualização de Dados Reais** — Integração com dados da NASA e outras APIs gratuitas  
-- 🎮 **Simulação Gamificada** — Experiência leve e educativa para explorar o território  
-- 📱 **Layout Responsivo** — Funciona bem em dispositivos móveis e desktops  
-- 🧭 **Filtros e Dashboards** — Ferramentas para explorar informações com facilidade  
-
----
-
-## 🛠️ Tecnologias Utilizadas
-
-| Tecnologia               | Descrição                                                |
-|---------------------------|-----------------------------------------------------------|
-| ⚛️ **React**              | Biblioteca para construção da interface                   |
-| ⚡ **Vite**               | Ferramenta de build rápida para desenvolvimento moderno  |
-| 🧭 **React Leaflet**      | Mapas interativos integrados ao React                     |
-| 🎨 **CSS / Tailwind / UI**| Estilização responsiva e moderna (ajuste conforme seu caso) |
-| 📡 **APIs NASA / externas** | Dados reais de vegetação, clima e território             |
+- 🗺️ **Interactive Map** — Navigate through Ceará and discover vegetation and semi-arid regions  
+- 🌿 **Real Data Visualization** — Integration with NASA data and other free APIs  
+- 🎮 **Gamified Simulation** — A fun and educational experience for exploring the territory  
+- 📱 **Responsive Layout** — Works seamlessly on mobile and desktop devices  
+- 🧭 **Filters & Dashboards** — Tools to explore information with ease  
 
 ---
 
-## 📁 Estrutura do Projeto
+## 🛠️ Technologies Used
+
+| Technology             | Description                                                         |
+|-------------------------|----------------------------------------------------------------------|
+| ⚛️ **React**            | Library for building user interfaces                                |
+| ⚡ **Vite**             | Fast build tool for modern development                              |
+| 🧭 **React Leaflet**    | Interactive maps integrated with React                              |
+| 🎨 **CSS / Tailwind / UI** | Modern and responsive styling (adjust according to your stack)    |
+| 📡 **NASA / External APIs** | Real vegetation, climate, and territory data                     |
+
+---
+
+## 📁 Project Structure
 
 apollo_terra_frontend/
 ├── src/
-│ ├── components/ # Componentes reutilizáveis
-│ ├── pages/ # Páginas principais da aplicação
-│ ├── services/ # Integração com APIs
-│ ├── styles/ # Arquivos de estilo
-│ └── main.jsx # Ponto de entrada da aplicação
+│ ├── components/ # Reusable components
+│ ├── pages/ # Main application pages
+│ ├── services/ # API integrations
+│ ├── styles/ # Style files
+│ └── main.jsx # Application entry point
 ├── public/
 ├── package.json
 ├── vite.config.js
@@ -48,59 +46,59 @@ Copiar código
 
 ---
 
-## 🚀 Como Rodar Localmente
+## 🚀 Running Locally
 
 ```bash
-# 1. Clone o repositório
+# 1. Clone the repository
 git clone https://github.com/Apollo-Terra/apollo_terra_frontend.git
 
-# 2. Acesse a pasta do projeto
+# 2. Navigate to the project folder
 cd apollo_terra_frontend
 
-# 3. Instale as dependências
+# 3. Install dependencies
 npm install
 
-# 4. Rode o servidor de desenvolvimento
+# 4. Start the development server
 npm run dev
-A aplicação estará disponível em:
+The app will be available at:
 👉 http://localhost:5173
 
-🧪 Scripts Disponíveis
-Script	Descrição
-npm run dev	Inicia o servidor de desenvolvimento
-npm run build	Gera a versão de produção
-npm run preview	Pré-visualiza o build localmente
-npm run lint	Verifica padrões de código com ESLint
+🧪 Available Scripts
+Script	Description
+npm run dev	Starts the development server
+npm run build	Builds the project for production
+npm run preview	Locally previews the production build
+npm run lint	Checks code quality with ESLint
 
-🤝 Contribuindo
-Contribuições são super bem-vindas! 💬
+🤝 Contributing
+Contributions are very welcome! 💬
 
-Faça um fork do projeto
+Fork this repository
 
-Crie uma nova branch para sua feature ou correção:
-
-bash
-Copiar código
-git checkout -b feature/nova-feature
-Commit suas alterações:
+Create a new branch for your feature or fix:
 
 bash
 Copiar código
-git commit -m "feat: adiciona nova feature"
-Faça o push:
+git checkout -b feature/new-feature
+Commit your changes:
 
 bash
 Copiar código
-git push origin feature/nova-feature
-Abra um Pull Request 🚀
+git commit -m "feat: add new feature"
+Push your branch:
 
-📜 Licença
-Este projeto é distribuído sob a licença MIT.
-Consulte o arquivo LICENSE para mais informações.
+bash
+Copiar código
+git push origin feature/new-feature
+Open a Pull Request 🚀
 
-🌟 Agradecimentos
-🚀 NASA Space Apps Challenge — inspiração e dados abertos
+📜 License
+This project is licensed under the MIT License.
+See the LICENSE file for more information.
 
-🧠 Equipe Apollo Terra — pelo esforço em criar uma solução inovadora
+🌟 Acknowledgments
+🚀 NASA Space Apps Challenge — for the inspiration and open data
 
-📊 Comunidade Open Source — pelas ferramentas incríveis ❤️
+🧠 Apollo Terra Team — for their efforts in building an innovative solution
+
+📊 Open Source Community — for the amazing tools ❤️
