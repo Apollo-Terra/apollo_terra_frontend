@@ -5,7 +5,7 @@ import '../styles/Navbar.css';
 import logo from '../assets/logo.png';
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(window.innerWidth > 768);
 
   return (
     <>
