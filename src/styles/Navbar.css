@@ -1,4 +1,3 @@
-
 .navbar {
   position: fixed;
   left: 0;
@@ -12,11 +11,12 @@
   padding: 2rem 0;
   z-index: 1000;
   border-right: 1px solid rgba(100, 200, 255, 0.1);
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .navbar.closed {
-  transform: translateX(-240px);
+  width: 70px;
+  transform: translateX(0);
 }
 
 .navbar-toggle {
@@ -82,6 +82,17 @@
   position: relative;
 }
 
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo-icon {
+  color: #64c8ff;
+  flex-shrink: 0;
+}
+
 .navbar-logo img {
   width: 80px;
   height: 80px;
@@ -123,7 +134,18 @@
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
+  gap: 0.75rem;
   overflow: hidden;
+  justify-content: flex-start;
+}
+
+.navbar.closed .navbar-links a {
+  justify-content: center;
+  padding: 1rem 0.5rem;
+}
+
+.nav-icon {
+  flex-shrink: 0;
 }
 
 .navbar-links a::before {
@@ -170,7 +192,7 @@
 
 .navbar.closed ~ .main-content,
 body:has(.navbar.closed) .main-content {
-  margin-left: 40px;
+  margin-left: 70px;
 } 
 
 /* Responsivo para tablets e mobile */
@@ -236,4 +258,3 @@ body:has(.navbar.closed) .main-content {
     margin-top: 80px;
   }
 }
-

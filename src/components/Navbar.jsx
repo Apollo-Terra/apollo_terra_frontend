@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { X, Menu } from 'lucide-react';
+import { X, Menu, Home, Info, BarChart3 } from 'lucide-react';
 import '../styles/Navbar.css';
 import logo from '../assets/logo.png';
 
@@ -20,8 +20,8 @@ const Navbar = () => {
         )}
         
         <div className="navbar-logo">
-          <img src={logo} alt="BloomWatch Logo" />
-          <h1>APOLLO TERRA</h1>
+          {isOpen && <img src={logo} alt="BloomWatch Logo" />}
+          {isOpen && <h1>APOLLO TERRA</h1>}
         </div>
         
         <div className="navbar-links">
@@ -29,19 +29,22 @@ const Navbar = () => {
             to="/" 
             className={({ isActive }) => (isActive ? "active" : "")}
           >
-            Inicio
+            <Home className="nav-icon" size={20} />
+            {isOpen && <span>Inicio</span>}
           </NavLink>
           <NavLink 
             to="/sobre" 
             className={({ isActive }) => (isActive ? "active" : "")}
           >
-            Sobre
+            <Info className="nav-icon" size={20} />
+            {isOpen && <span>Sobre</span>}
           </NavLink>
           <NavLink 
             to="/dashboard" 
             className={({ isActive }) => (isActive ? "active" : "")}
           >
-            Dashboard
+            <BarChart3 className="nav-icon" size={20} />
+            {isOpen && <span>Dashboard</span>}
           </NavLink>
         </div>
       </nav>

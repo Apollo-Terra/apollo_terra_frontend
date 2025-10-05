@@ -1,28 +1,21 @@
 import { useState, useEffect } from 'react';
-import { MapContainer, TileLayer, ScaleControl } from 'react-leaflet';
+import { MapContainer, TileLayer } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import '../styles/Home.css';
 import api from '../services/apiService';
+import NasaTileLayer from '../components/NasaTileLayer';
 
 const Home = () => {
-  const cearaPosition = [-5.20, -39.50];
   const [selectedDate, setSelectedDate] = useState(new Date().toISOString().split('T')[0]);
   const [satelliteLayerUrl, setSatelliteLayerUrl] = useState('');
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchLayerUrl = async () => {
-      setIsLoading(true);
-      console.log('Buscando dados para a data:', selectedDate);
       try {
         const response = await api.get(`/gibs-layer-url?date=${selectedDate}`);
-        console.log('Resposta da API:', response.data);
         setSatelliteLayerUrl(response.data.templateUrl);
       } catch (error) {
-        console.error("Erro ao buscar a camada de satélite:", error);
-        setSatelliteLayerUrl('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
-      } finally {
-        setIsLoading(false);
+        console.error('Erro ao buscar camada:', error);
       }
     };
 
@@ -32,8 +25,8 @@ const Home = () => {
   return (
     <div className="home-container">
       <header className="home-header">
-        <h2>BloomWatch Ceará: O Pulso Verde do Sertão</h2>
-        <p>Selecione uma data e viaje no tempo com imagens de satélite MODIS da NASA.</p>
+        <h2>Apollo Terra</h2>
+        <p>Monitoramento Inteligente da Terra com Tecnologia NASA</p>
       </header>
 
       <div className="controls-container">
@@ -46,34 +39,28 @@ const Home = () => {
         />
       </div>
 
-      <div className="map-wrapper">
-        {isLoading ? (
-          <div className="loading-overlay">Carregando Imagens da NASA...</div>
-        ) : (
-          <MapContainer 
-            center={cearaPosition} 
-            zoom={8} 
-            scrollWheelZoom={true} 
-            className="map-container"
-            style={{ height: '100%', width: '100%' }}
-          >
-            <TileLayer
-              attribution='&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a>'
-              url="https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png"
+      
+        <MapContainer 
+          center={[-5.20, -39.50]} 
+          zoom={8} 
+          scrollWheelZoom={true}
+          className="map-container"
+        >
+          <TileLayer
+            url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
+            attribution='&copy; CartoDB'
+          />
+          
+          {satelliteLayerUrl && (
+            <NasaTileLayer
+              key={`nasa-${selectedDate}`}
+              url={satelliteLayerUrl}
+              opacity={0.7}
+              selectedDate={selectedDate}
             />
-            
-            {satelliteLayerUrl && (
-              <TileLayer
-                key={`${satelliteLayerUrl}-${selectedDate}`}
-                url={satelliteLayerUrl}
-                attribution='&copy; <a href="https://earthdata.nasa.gov/eosdis/daacs/gibs">NASA GIBS</a>'
-                opacity={0.8}
-              />
-            )}
-            <ScaleControl imperial={false} />
-          </MapContainer>
-        )}
-      </div>
+          )}
+        </MapContainer>
+    
       
       <div className="info-section">
         <h3>Análise Temporal e Interatividade</h3>

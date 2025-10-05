@@ -1,14 +1,20 @@
-
 .home-container {
   padding: 2rem;
   text-align: center;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .home-header h2 {
-  font-size: 2.5rem;
-  color: #bfdbfe;
+  font-size: 3rem;
+  background: linear-gradient(135deg, #60a5fa 0%, #34d399 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-bottom: 0.5rem;
-  font-weight: 700;
+  font-weight: 800;
+  text-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
 
 .home-header p {
@@ -20,10 +26,15 @@
 
 .controls-container {
   margin-bottom: 2rem;
-  background-color: #1e293b;
-  padding: 1rem;
-  border-radius: 10px;
+  background: rgba(30, 41, 59, 0.8);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  padding: 1.2rem;
+  border-radius: 12px;
   display: inline-block;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  width: 100%;
+  max-width: 400px;
 }
 
 .controls-container label {
@@ -44,19 +55,31 @@
 .map-wrapper {
   position: relative;
   height: 70vh;
-  width: 90%;
-  margin: 0 auto;
-  border: 2px solid #334155;
-  border-radius: 15px;
+  width: 100%;
+  margin: 0;
+  border: 2px solid rgba(59, 130, 246, 0.3);
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  background-color: #0b1120; /* Fundo para o loader */
+  box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
+  background-color: #0b1120;
+  transition: all 0.3s ease;
+}
+
+.map-wrapper:hover {
+  border-color: rgba(59, 130, 246, 0.5);
+  box-shadow: 0 25px 50px rgba(59, 130, 246, 0.3);
 }
 
 .map-container {
   width: 100%;
-  height: 100%;
-  z-index: 1;
+  max-width: 1200px;
+  height: 70vh;
+  min-height: 400px;
+  margin: 2rem auto;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 2px solid rgba(59, 130, 246, 0.3);
+  box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
 }
 
 .leaflet-container {
@@ -86,8 +109,10 @@
   background-color: #1e293b;
   border-radius: 10px;
   text-align: left;
-  max-width: 90%;
+  max-width: 1200px;
+  width: 100%;
   margin: 2rem auto;
+  box-sizing: border-box;
 }
 .info-section h3 {
     color: #93c5fd;
@@ -105,7 +130,71 @@
     text-decoration: underline;
 }
 
-/* Garante que o conteúdo principal não fique escondido atrás da navbar */
-main {
-  padding-top: 60px; /* Ajuste conforme a altura da sua navbar */
+/* Responsividade */
+@media (max-width: 1024px) {
+  .home-container {
+    padding: 1.5rem;
+  }
+  
+  .map-container {
+    height: 60vh;
+    margin: 1.5rem auto;
+  }
+  
+  .home-header h2 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-container {
+    padding: 1rem;
+  }
+  
+  .map-container {
+    height: 50vh;
+    min-height: 300px;
+    margin: 1rem auto;
+    border-radius: 8px;
+  }
+  
+  .home-header h2 {
+    font-size: 2rem;
+  }
+  
+  .home-header p {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+  
+  .controls-container {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .controls-container label {
+    display: block;
+    margin-bottom: 0.5rem;
+    margin-right: 0;
+  }
+  
+  .info-section {
+    padding: 1rem;
+    margin: 1rem auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-header h2 {
+    font-size: 1.75rem;
+  }
+  
+  .map-container {
+    height: 40vh;
+    min-height: 250px;
+  }
+  
+  .controls-container {
+    padding: 0.75rem;
+  }
 }
